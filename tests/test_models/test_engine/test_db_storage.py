@@ -5,6 +5,9 @@ Contains the TestDBStorageDocs and TestDBStorage classes
 
 from datetime import datetime
 import inspect
+
+from aiohttp_session import STORAGE_KEY
+from tinydb import Storage
 import models
 from models.engine import db_storage
 from models.amenity import Amenity
@@ -105,6 +108,6 @@ class TestFileStorage(unittest.TestCase):
         dic = {"name": "Mexico", "state_id": state.id}
         city = City(**dic)
         storage.new(city)
-        storage.save()
+        Storage.save()
         c = storage.count()
-        self.assertEqual(len(storage.all()), c)
+        self.assertEqual(len(STORAGE_KEY.all()), c)
