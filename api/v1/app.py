@@ -1,10 +1,6 @@
 #!/usr/bin/python3
+"""Flask server (variable app)
 """
-Flask server (variable app)
-documentation for the app.py
-"""
-
-
 from flask import Flask, jsonify
 from models import storage
 from os import getenv
